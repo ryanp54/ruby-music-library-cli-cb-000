@@ -1,5 +1,7 @@
 #add requires
 class Song
+  include Concerns::Sortable
+
   @@all = []
   attr_accessor :name
   attr_reader :artist, :genre

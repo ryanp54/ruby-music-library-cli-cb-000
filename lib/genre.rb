@@ -1,6 +1,8 @@
 #add requires
 class Genre
   extend Concerns::Findable
+  include Concerns::Sortable
+
   @@all = []
   attr_accessor :name, :songs
 
