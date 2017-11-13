@@ -1,32 +1,12 @@
 #add requires
-class Artist
+class Artist < LibItem
   extend Concerns::Findable
-  include Concerns::Sortable
 
-  @@all = []
-  attr_accessor :name, :songs
+  attr_accessor :songs
 
   def initialize(name)
-    @name = name
+    super
     @songs = []
-  end
-
-  def self.all
-    @@all
-  end
-
-  def self.destroy_all
-    @@all = []
-  end
-
-  def self.create(name)
-    artist = self.new(name)
-    artist.save
-    artist
-  end
-
-  def save
-    self.class.all << self
   end
 
   def add_song(song)

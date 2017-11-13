@@ -1,33 +1,12 @@
 #add requires
-class Song
-  include Concerns::Sortable
+class Song < LibItem
 
-  @@all = []
-  attr_accessor :name
   attr_reader :artist, :genre
 
   def initialize(name, artist = nil, genre = nil)
-    @name = name
+    super(name)
     self.artist = artist if artist
     self.genre = genre if genre
-  end
-
-  def self.all
-    @@all
-  end
-
-  def self.destroy_all
-    @@all = []
-  end
-
-  def self.create(name)
-    song = self.new(name)
-    song.save
-    song
-  end
-
-  def save
-    self.class.all << self
   end
 
   def artist=(artist)
