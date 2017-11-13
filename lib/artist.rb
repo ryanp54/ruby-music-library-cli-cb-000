@@ -2,8 +2,13 @@
 class Artist < LibItem
   extend Concerns::Findable
 
-  attr_accessor :songs
+  attr_accessor :songs  
+  @@all = []
 
+  def self.all
+    @@all
+  end
+  
   def initialize(name)
     super
     @songs = []
